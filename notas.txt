@@ -1,0 +1,52 @@
+https://www.itsolutionstuff.com/post/laravel-11-real-time-notifications-using-reverb-exampleexample.html
+https://claude.ai/chat/e6429fa2-708f-4689-b2dd-c87a450b297f
+https://laravel.com/docs/12.x/reverb
+
+
+composer create-project laravel/laravel nome-do-projeto "^11.0"
+composer require livewire/livewire
+php artisan install:broadcasting
+php artisan vendor:publish --tag=reverb-config
+php artisan reverb:start --host=127.0.0.1 --port=2020
+npm install pusher-js laravel-echo
+https://chatgpt.com/share/688ac2cd-1178-8009-ad65-5c7db37f0dd2
+
+# Limpar cache
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+# Recompilar assets
+npm run build
+
+##############.env#########################
+REVERB_APP_ID=772594
+REVERB_APP_KEY=jkqaiwassmfatxfpzait
+REVERB_APP_SECRET=6n47zi82gch69b8kbhiz
+REVERB_HOST=localhost
+REVERB_PORT=8080
+REVERB_SCHEME=http
+
+VITE_REVERB_APP_KEY="${REVERB_APP_KEY}"
+VITE_REVERB_HOST="${REVERB_HOST}"
+VITE_REVERB_PORT="${REVERB_PORT}"
+VITE_REVERB_SCHEME="${REVERB_SCHEME}"
+
+
+php artisan make:livewire Lotomania/LotomaniaComponent 
+
+
+
+…or create a new repository on the command line
+echo "# reverb11post" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/wanacleto/reverb11post.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/wanacleto/reverb11post.git
+git branch -M main
+git push -u origin main
