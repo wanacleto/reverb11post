@@ -5,10 +5,6 @@
 
     RewriteEngine On
 
-    # Proxy reverso para WebSocket Reverb
-    RewriteCond %{REQUEST_URI} ^/reverb(/.*)?$
-    RewriteRule /(.*) ws://127.0.0.1:6060/$1 [P,L]
-
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
