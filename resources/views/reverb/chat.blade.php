@@ -14,6 +14,15 @@
         <livewire:chat-component />
     </div>
     @livewireScripts
+    <script>
+        document.addEventListener('livewire:load', () => {
+            Livewire.hook('request', ({ request }) => {
+                if (window.Echo && window.Echo.socketId) {
+                    request.headers['X-Socket-Id'] = window.Echo.socketId();
+                }
+            });
+        });
+    </script>
     @vite(['resources/js/app.js'])
 </body>
 </html>
