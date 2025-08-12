@@ -75,7 +75,7 @@
 @endsection
 
 @section('script')
-    @if(auth()->user()->is_admin)
+    {{-- @if(auth()->user()->is_admin) --}}
         <script type="module">
                 window.Echo.channel('posts')
                     .listen('.create', (data) => {
@@ -84,5 +84,5 @@
                         d1.insertAdjacentHTML('beforeend', '<div class="alert alert-success alert-dismissible fade show"><span><i class="fa fa-circle-check"></i>  '+data.message+'</span></div>');
                     });
         </script>
-    @endif
+    {{-- @endif --}}
 @endsection

@@ -5,10 +5,17 @@ use App\Events\PostCreate;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Mail\SendWelcomeEmail;
+use App\Jobs\JobSendWelcomeEmail;
+use Illuminate\Support\Facades\Mail;
+
 
 class PostComponent extends Component
 {
     public $title = '';
+    public $name = '';
+    public $email = '';
+    public $body = '';
 
     public function render()
     {
@@ -24,15 +31,24 @@ class PostComponent extends Component
 
         $post = Post::create([
             'user_id' => Auth::id(),
-            'title' => $this->title
+            'title' => $this->title,
+            'name' => $this->name,
+            'email' => $this->email,
+            'body' => $this->body
         ]);
 
         // Disparar evento para notificação em tempo real
-        event(new PostCreate($post));
+        // event(new PostCreate($post));
+        // Mail::to($post->email)->send(new SendWelcomeEmail($post) );
+        JobSendWelcomeEmail::dispatch($post->id)->onQueue('default');
         
 
         // Limpar campo e mostrar mensagem
         $this->title = '';
-        session()->flash('message', 'Post criado com sucesso!');
+        $this->name = '';
+        $this->email = '';
+        $this->body = '';
+        $this->dispatch('alert', type: 'error', message: 'Post criado com sucesso!');
+
     }
 }

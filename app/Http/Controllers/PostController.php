@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Events\PostCreate;
+use App\Mail\SendWelcomeEmail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
+
 
 class PostController extends Controller
 {
@@ -35,10 +39,15 @@ class PostController extends Controller
         $post = Post::create([
             'user_id' => auth()->id(),
             'title' => $request->title,
+            'name' => $request->name,
+            'email' => $request->email,
             'body' => $request->body
         ]);
 
-        event(new PostCreate($post));
+        Mail::to($post->email)->send(new SendWelcomeEmail($post) );
+
+        dd($post);
+        // event(new PostCreate($post));
    
         return back()->with('success','Post created successfully.');
     }

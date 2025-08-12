@@ -28,7 +28,7 @@
 @endsection
 
 @section('script')
-    @if(auth()->user()->is_admin)
+    @if(auth()->user()->admin)
         <script type="module">
                 window.Echo.channel('posts')
                     .listen('.create', (data) => {

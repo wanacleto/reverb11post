@@ -129,7 +129,7 @@ class LotomaniaComponent extends Component
     public function gerarDezenas()
     {
         $this->dezenas = [];
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 1; $i < 101; $i++) {
             $this->dezenas[] = $i;
         }
     }

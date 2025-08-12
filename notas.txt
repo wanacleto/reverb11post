@@ -11,6 +11,9 @@ php artisan reverb:start --host=127.0.0.1 --port=2020
 npm install pusher-js laravel-echo
 https://chatgpt.com/share/688ac2cd-1178-8009-ad65-5c7db37f0dd2
 
+
+php artisan reverb:start
+
 # Limpar cache
 php artisan config:clear
 php artisan route:clear
@@ -50,3 +53,26 @@ git push -u origin main
 git remote add origin https://github.com/wanacleto/reverb11post.git
 git branch -M main
 git push -u origin main
+
+//email
+https://www.youtube.com/watch?v=N0p5x6JEfEI - tutorial muito bom
+php artisan make:mail SendWelcomeEmail
+Mail::to($user->email)->send(new SendWelcomeEmail($user) );
+
+php artisan make:view emails.sendWelcomeHtmlEmail
+php artisan make:view emails.sendWelcomeTextEmail
+php artisan make:job JobSendWelcomeEmail
+php artisan queue:work --queue=default
+
+//sweetalert2
+https://www.youtube.com/watch?v=hssp10TmjRA&list=PLmY5AEiqDWwB29FbhTfTh86Zr0yjeFBwO&index=11
+https://sweetalert2.github.io/#download
+npm install sweetalert2
+
+
+https://tallstackui.com/
+
+https://puter.com/
+
+
+laravel new --using=tallstackui/starter-kit
