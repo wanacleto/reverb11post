@@ -2,6 +2,9 @@ https://www.itsolutionstuff.com/post/laravel-11-real-time-notifications-using-re
 https://claude.ai/chat/e6429fa2-708f-4689-b2dd-c87a450b297f
 https://laravel.com/docs/12.x/reverb
 
+//gitignore
+/vendor
+/public/build
 
 composer create-project laravel/laravel nome-do-projeto "^11.0"
 composer require livewire/livewire
